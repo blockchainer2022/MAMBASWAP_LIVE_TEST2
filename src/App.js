@@ -256,6 +256,7 @@ function App() {
             },
             function (error, estimatedGas) {
               console.log("estimatedGas:", estimatedGas);
+              console.log("errorFromEstimateGas::", error);
             }
           );
 
@@ -271,25 +272,17 @@ function App() {
               el.innerHTML =
                 "View minted NFT on OpenSea : <a href='https://testnets.opensea.io/account '>View Now</a>";
 
-              // swal({
-              //   title: "NFT Minted!",
-              //   content: el,
-              //   icon: "success",
-              // });
               setNftMinted(true);
               setConfirmTransaction(false);
               setMintingInProgress(false);
-              // setBuyConfirm(true);
             })
             .on("error", function (error, receipt) {
               if (error.code === 4001) {
-                // swal("Transaction Rejected!", "", "error");
                 setNftMinted(false);
                 setTransactionRejected(true);
                 setConfirmTransaction(false);
                 setMintingInProgress(false);
               } else {
-                // swal("Transaction Failed!", "", "error");
                 setTransactionFailed(true);
                 setConfirmTransaction(false);
                 setMintingInProgress(false);
@@ -298,15 +291,9 @@ function App() {
             });
         }
       } else {
-        // swal("Please switch to mainnet to buy Agod", "", "error");
         setswitchToMainnet(true);
       }
     } else {
-      // swal(
-      //   "",
-      //   "Please install an Ethereum-compatible browser or extension like MetaMask to use this dApp!",
-      //   "error"
-      // );
       setEthereumCompatibleBrowser(true);
     }
   }
