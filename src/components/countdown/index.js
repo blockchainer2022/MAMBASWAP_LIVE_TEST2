@@ -1,12 +1,12 @@
 import "./style.css";
 import moment from "moment";
 const Timer = ({ days, hours, minutes, seconds, startTime, endTime }) => {
-  var s = new Date(Number(startTime * 1000)).toLocaleDateString("en-US");
-  var e = new Date(Number(endTime * 1000)).toLocaleDateString("en-US");
+  var s = new Date(Number(startTime * 1000)).toUTCString();
+  var e = new Date(Number(endTime * 1000)).toUTCString();
   // console.log(+new moment(`${s} 00:00:00`).utc() > +new Date());
-  const start = +new moment(`${s} 00:00:00`).utc() > +new Date();
+  const start = +new moment(`${s}`).utc() > +new Date();
   // console.log("TIME FROM COUNT", e);
-  const end = +new moment(`${e} 00:00:00`).utc() < +new Date();
+  const end = +new moment(`${e}`).utc() < +new Date();
 
   return (
     <div className="border-2 border-primary py-2 w-full  rounded-lg dark:text-gray-50">

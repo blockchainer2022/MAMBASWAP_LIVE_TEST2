@@ -50,10 +50,10 @@ const Index = ({
     }
   };
 
-  var s = new Date(Number(startTime * 1000)).toLocaleDateString("en-US");
-  var e = new Date(Number(endTime * 1000)).toLocaleDateString("en-US");
-  const start = +new moment(`${s} 00:00:00`).utc() > +new Date();
-  const end = +new moment(`${e} 00:00:00`).utc() < +new Date();
+  var s = new Date(Number(startTime * 1000)).toUTCString();
+  var e = new Date(Number(endTime * 1000)).toUTCString();
+  const start = +new moment(`${s}`).utc() > +new Date();
+  const end = +new moment(`${e}`).utc() < +new Date();
 
   return (
     <>
