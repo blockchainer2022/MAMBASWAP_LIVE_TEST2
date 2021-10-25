@@ -51,7 +51,7 @@ const Home = ({
         userTokenBalance={userTokenBalance}
         loadWalleConnect={loadWalleConnect}
         loadWeb3={loadWeb3}
-        startTime={data.startTime}
+        startTime={1635139843}
         endTime={data.endTime}
       />
     </div>
